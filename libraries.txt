@@ -33,3 +33,20 @@ Traceback (most recent call last):
 RuntimeError: NeoPixel support requires running with sudo, please try again!
 127.0.0.1 - - [27/May/2024 21:50:18] "POST /set_led HTTP/1.1" 500 -
 
+sudo nano /etc/systemd/system/led_controller.service
+
+[Unit]
+Description=LED Controller Service
+After=multi-user.target
+
+[Service]
+ExecStart=/home/pi/led_control_env/bin/python /home/pi/led_control_project/led_controller.py
+WorkingDirectory=/home/pi/led_control_project
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
