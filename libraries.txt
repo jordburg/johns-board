@@ -52,16 +52,16 @@ WantedBy=multi-user.target
 
 × led_controller.service - LED Controller Service
      Loaded: loaded (/etc/systemd/system/led_controller.service; enabled; preset: enabled)
-     Active: failed (Result: exit-code) since Mon 2024-05-27 22:03:34 BST; 31s ago
-   Duration: 4ms
-    Process: 2993 ExecStart=/home/pi/led_control_env/bin/python /home/pi/led_control_project/led_con>
-   Main PID: 2993 (code=exited, status=217/USER)
-        CPU: 0
+     Active: failed (Result: exit-code) since Mon 2024-05-27 22:13:21 BST; 21s ago
+   Duration: 6ms
+    Process: 3137 ExecStart=/home/pi/led_control_env/bin/python /home/pi/led_control_project/led_controlle>
+   Main PID: 3137 (code=exited, status=203/EXEC)
+        CPU: 4ms
 
-May 27 22:03:34 raspberrypi systemd[1]: led_controller.service: Scheduled restart job, restart count>
-May 27 22:03:34 raspberrypi systemd[1]: Stopped led_controller.service - LED Controller Service.
-May 27 22:03:34 raspberrypi systemd[1]: led_controller.service: Start request repeated too quickly.
-May 27 22:03:34 raspberrypi systemd[1]: led_controller.service: Failed with result 'exit-code'.
-May 27 22:03:34 raspberrypi systemd[1]: Failed to start led_controller.service - LED Controller Serv>
-
+May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Scheduled restart job, restart counter is >
+May 27 22:13:21 raspberrypi systemd[1]: Stopped led_controller.service - LED Controller Service.
+May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Start request repeated too quickly.
+May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Failed with result 'exit-code'.
+May 27 22:13:21 raspberrypi systemd[1]: Failed to start led_controller.service - LED Controller Service.
+lines 1-13/13 (END)
 
