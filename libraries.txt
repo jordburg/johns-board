@@ -2,66 +2,486 @@ rpi_ws281x
 adafruit-circuitpython-neopixel
 flask
 
-127.0.0.1 - - [27/May/2024 21:49:53] "GET / HTTP/1.1" 200 -
-Can't open /dev/mem: Permission denied
-[2024-05-27 21:50:18,231] ERROR in app: Exception on /set_led [POST]
+jkenagy@raspberrypi:~ $ cd JohnsBoard-Main
+bash: cd: JohnsBoard-Main: No such file or directory
+jkenagy@raspberrypi:~ $ cd /JohnsBoard-main/
+bash: cd: /JohnsBoard-main/: No such file or directory
+jkenagy@raspberrypi:~ $ cd home
+bash: cd: home: No such file or directory
+jkenagy@raspberrypi:~ $ cd /home/jkenagy/JohnsBoard-main/LedController.py
+bash: cd: /home/jkenagy/JohnsBoard-main/LedController.py: Not a directory
+jkenagy@raspberrypi:~ $ /home/jkenagy/JohnsBoard-main/
+bash: /home/jkenagy/JohnsBoard-main/: Is a directory
+jkenagy@raspberrypi:~ $ JohnsBoard-main
+bash: JohnsBoard-main: command not found
+jkenagy@raspberrypi:~ $ cd JohnsBoard-main
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo python3 LedController.py
 Traceback (most recent call last):
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+  File "/home/jkenagy/JohnsBoard-main/LedController.py", line 2, in <module>
+    import board
+ModuleNotFoundError: No module named 'board'
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get pip3 install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
+E: Invalid operation pip3
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get python3 install rpi_ws281x
+E: Invalid operation python3
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get rpi ws281x
+E: Invalid operation rpi
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get rpiws281x
+E: Invalid operation rpiws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get install rpiws281x
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package rpiws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get install rpi_ws281x
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package rpi_ws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt-get install rpi_ws281x
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package rpi_ws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 install rpi_ws281x
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt install python3-rpi_ws281x
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package python3-rpi_ws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo apt install python3 rpi_ws281x
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package rpi_ws281x
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 install rpi_ws281x
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    For more information visit http://rptl.io/venv
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 install rpi_ws281x --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting rpi_ws281x
+  Downloading https://www.piwheels.org/simple/rpi-ws281x/rpi_ws281x-5.0.0-cp311-cp311-linux_armv7l.whl (120 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.6/120.6 kB 305.2 kB/s eta 0:00:00
+Installing collected packages: rpi_ws281x
+Successfully installed rpi_ws281x-5.0.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 install adafruit-circuitpython-neopixel flask --break-system-packages
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting adafruit-circuitpython-neopixel
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-neopixel/adafruit_circuitpython_neopixel-6.3.11-py3-none-any.whl (6.4 kB)
+Requirement already satisfied: flask in /usr/lib/python3/dist-packages (2.2.2)
+Collecting Adafruit-Blinka
+  Downloading https://www.piwheels.org/simple/adafruit-blinka/Adafruit_Blinka-8.39.2-py3-none-any.whl (335 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 335.3/335.3 kB 627.2 kB/s eta 0:00:00
+Collecting adafruit-circuitpython-pixelbuf
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-pixelbuf/adafruit_circuitpython_pixelbuf-2.0.4-py3-none-any.whl (7.0 kB)
+Collecting Adafruit-PlatformDetect>=3.62.0
+  Downloading https://www.piwheels.org/simple/adafruit-platformdetect/Adafruit_PlatformDetect-3.63.0-py3-none-any.whl (24 kB)
+Collecting Adafruit-PureIO>=1.1.7
+  Downloading https://www.piwheels.org/simple/adafruit-pureio/Adafruit_PureIO-1.1.11-py3-none-any.whl (10 kB)
+Collecting pyftdi>=0.40.0
+  Downloading https://www.piwheels.org/simple/pyftdi/pyftdi-0.55.4-py3-none-any.whl (145 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.6/145.6 kB 749.8 kB/s eta 0:00:00
+Collecting adafruit-circuitpython-typing
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-typing/adafruit_circuitpython_typing-1.10.3-py3-none-any.whl (11 kB)
+Requirement already satisfied: RPi.GPIO in /usr/lib/python3/dist-packages (from Adafruit-Blinka->adafruit-circuitpython-neopixel) (0.7.1a4)
+Requirement already satisfied: rpi-ws281x>=4.0.0 in /usr/local/lib/python3.11/dist-packages (from Adafruit-Blinka->adafruit-circuitpython-neopixel) (5.0.0)
+Collecting sysv-ipc>=1.1.0
+  Downloading https://www.piwheels.org/simple/sysv-ipc/sysv_ipc-1.1.0-cp311-cp311-linux_armv7l.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.5/66.5 kB 2.3 MB/s eta 0:00:00
+Collecting pyusb!=1.2.0,>=1.0.0
+  Downloading https://www.piwheels.org/simple/pyusb/pyusb-1.2.1-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.4/58.4 kB 2.1 MB/s eta 0:00:00
+Requirement already satisfied: pyserial>=3.0 in /usr/lib/python3/dist-packages (from pyftdi>=0.40.0->Adafruit-Blinka->adafruit-circuitpython-neopixel) (3.5)
+Collecting adafruit-circuitpython-busdevice
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-busdevice/adafruit_circuitpython_busdevice-5.2.9-py3-none-any.whl (7.5 kB)
+Collecting adafruit-circuitpython-requests
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-requests/adafruit_circuitpython_requests-4.0.0-py3-none-any.whl (10 kB)
+Requirement already satisfied: typing-extensions~=4.0 in /usr/lib/python3/dist-packages (from adafruit-circuitpython-typing->Adafruit-Blinka->adafruit-circuitpython-neopixel) (4.4.0)
+Collecting Adafruit-Circuitpython-ConnectionManager
+  Downloading https://www.piwheels.org/simple/adafruit-circuitpython-connectionmanager/adafruit_circuitpython_connectionmanager-3.1.0-py3-none-any.whl (7.8 kB)
+Installing collected packages: sysv-ipc, Adafruit-PlatformDetect, pyusb, Adafruit-PureIO, pyftdi, Adafruit-Circuitpython-ConnectionManager, adafruit-circuitpython-requests, adafruit-circuitpython-busdevice, adafruit-circuitpython-typing, Adafruit-Blinka, adafruit-circuitpython-pixelbuf, adafruit-circuitpython-neopixel
+Successfully installed Adafruit-Blinka-8.39.2 Adafruit-Circuitpython-ConnectionManager-3.1.0 Adafruit-PlatformDetect-3.63.0 Adafruit-PureIO-1.1.11 adafruit-circuitpython-busdevice-5.2.9 adafruit-circuitpython-neopixel-6.3.11 adafruit-circuitpython-pixelbuf-2.0.4 adafruit-circuitpython-requests-4.0.0 adafruit-circuitpython-typing-1.10.3 pyftdi-0.55.4 pyusb-1.2.1 sysv-ipc-1.1.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+jkenagy@raspberrypi:~/JohnsBoard-main $ pip list
+Package                                  Version
+---------------------------------------- ----------
+Adafruit-Blinka                          8.39.2
+adafruit-circuitpython-busdevice         5.2.9
+adafruit-circuitpython-connectionmanager 3.1.0
+adafruit-circuitpython-neopixel          6.3.11
+adafruit-circuitpython-pixelbuf          2.0.4
+adafruit-circuitpython-requests          4.0.0
+adafruit-circuitpython-typing            1.10.3
+Adafruit-PlatformDetect                  3.63.0
+Adafruit-PureIO                          1.1.11
+arandr                                   0.1.11
+asgiref                                  3.6.0
+astroid                                  2.14.2
+asttokens                                2.2.1
+av                                       10.0.0
+Babel                                    2.10.3
+beautifulsoup4                           4.11.2
+blinker                                  1.5
+certifi                                  2022.9.24
+chardet                                  5.1.0
+charset-normalizer                       3.0.1
+click                                    8.1.3
+colorama                                 0.4.6
+colorzero                                2.0
+cryptography                             38.0.4
+cupshelpers                              1.0
+dbus-python                              1.3.2
+dill                                     0.3.6
+distro                                   1.8.0
+docutils                                 0.19
+Flask                                    2.2.2
+gpiozero                                 2.0
+html5lib                                 1.1
+idna                                     3.3
+importlib-metadata                       4.12.0
+isort                                    5.6.4
+itsdangerous                             2.1.2
+jedi                                     0.18.2
+Jinja2                                   3.1.2
+lazy-object-proxy                        1.9.0
+lgpio                                    0.2.2.0
+libevdev                                 0.5
+logilab-common                           1.9.8
+lxml                                     4.9.2
+MarkupSafe                               2.1.2
+mccabe                                   0.7.0
+meson                                    1.0.1
+more-itertools                           8.10.0
+mypy                                     1.0.1
+mypy-extensions                          0.4.3
+numpy                                    1.24.2
+oauthlib                                 3.2.2
+olefile                                  0.46
+parso                                    0.8.3
+pexpect                                  4.8.0
+pgzero                                   1.2
+picamera2                                0.3.18
+pidng                                    4.0.9
+piexif                                   1.1.3
+pigpio                                   1.78
+Pillow                                   9.4.0
+pip                                      23.0.1
+platformdirs                             2.6.0
+psutil                                   5.9.4
+ptyprocess                               0.7.0
+pycairo                                  1.20.1
+pycryptodomex                            3.11.0
+pycups                                   2.0.1
+pyftdi                                   0.55.4
+pygame                                   2.1.2
+Pygments                                 2.14.0
+PyGObject                                3.42.2
+pyinotify                                0.9.6
+PyJWT                                    2.6.0
+pylint                                   2.16.2
+PyOpenGL                                 3.1.6
+pyOpenSSL                                23.0.0
+PyQt5                                    5.15.9
+PyQt5-sip                                12.11.1
+pyserial                                 3.5
+pysmbc                                   1.0.23
+python-apt                               2.6.0
+python-dotenv                            0.21.0
+python-prctl                             1.8.1
+pytz                                     2022.7.1
+pyudev                                   0.24.0
+pyusb                                    1.2.1
+reportlab                                3.6.12
+requests                                 2.28.1
+requests-oauthlib                        1.3.0
+responses                                0.18.0
+roman                                    3.3
+RPi.GPIO                                 0.7.1a4
+rpi_ws281x                               5.0.0
+RTIMULib                                 7.2.1
+Send2Trash                               1.8.1b0
+sense-hat                                2.6.0
+setuptools                               66.1.1
+simplejpeg                               1.6.6
+simplejson                               3.18.3
+six                                      1.16.0
+smbus2                                   0.4.2
+soupsieve                                2.3.2
+spidev                                   3.5
+ssh-import-id                            5.10
+sysv-ipc                                 1.1.0
+thonny                                   4.1.4
+toml                                     0.10.2
+tomlkit                                  0.11.7
+twython                                  3.8.2
+types-aiofiles                           22.1
+types-annoy                              1.17
+types-appdirs                            1.4
+types-aws-xray-sdk                       2.10
+types-babel                              2.11
+types-backports.ssl-match-hostname       3.7
+types-beautifulsoup4                     4.11
+types-bleach                             5.0
+types-boto                               2.49
+types-braintree                          4.17
+types-cachetools                         5.2
+types-caldav                             0.10
+types-certifi                            2021.10.8
+types-cffi                               1.15
+types-chardet                            5.0
+types-chevron                            0.14
+types-click-spinner                      0.1
+types-colorama                           0.4
+types-commonmark                         0.9
+types-console-menu                       0.7
+types-contextvars                        2.4
+types-croniter                           1.3
+types-cryptography                       3.3
+types-D3DShot                            0.1
+types-dateparser                         1.1
+types-DateTimeRange                      1.2
+types-decorator                          5.1
+types-Deprecated                         1.2
+types-dj-database-url                    1.0
+types-docopt                             0.6
+types-docutils                           0.19
+types-editdistance                       0.6
+types-emoji                              2.1
+types-entrypoints                        0.4
+types-first                              2.0
+types-flake8-2020                        1.7
+types-flake8-bugbear                     22.10.27
+types-flake8-builtins                    2.0
+types-flake8-docstrings                  1.6
+types-flake8-plugin-utils                1.3
+types-flake8-rst-docstrings              0.2
+types-flake8-simplify                    0.19
+types-flake8-typing-imports              1.14
+types-Flask-Cors                         3.0
+types-Flask-SQLAlchemy                   2.5
+types-fpdf2                              2.5
+types-gdb                                12.1
+types-google-cloud-ndb                   1.11
+types-hdbcli                             2.14
+types-html5lib                           1.1
+types-httplib2                           0.21
+types-humanfriendly                      10.0
+types-invoke                             1.7
+types-JACK-Client                        0.5
+types-jmespath                           1.0
+types-jsonschema                         4.17
+types-keyboard                           0.13
+types-ldap3                              2.9
+types-Markdown                           3.4
+types-mock                               4.0
+types-mypy-extensions                    0.4
+types-mysqlclient                        2.1
+types-oauthlib                           3.2
+types-openpyxl                           3.0
+types-opentracing                        2.4
+types-paho-mqtt                          1.6
+types-paramiko                           2.11
+types-parsimonious                       0.10
+types-passlib                            1.7
+types-passpy                             1.0
+types-peewee                             3.15
+types-pep8-naming                        0.13
+types-Pillow                             9.3
+types-playsound                          1.3
+types-polib                              1.1
+types-prettytable                        3.4
+types-protobuf                           3.20
+types-psutil                             5.9
+types-psycopg2                           2.9
+types-pyaudio                            0.2
+types-PyAutoGUI                          0.9
+types-pycurl                             7.45
+types-pyfarmhash                         0.3
+types-pyflakes                           2.5
+types-Pygments                           2.13
+types-pyinstaller                        5.6
+types-PyMySQL                            1.0
+types-pynput                             1.7
+types-pyOpenSSL                          22.1
+types-pyRFC3339                          1.1
+types-PyScreeze                          0.1
+types-pysftp                             0.2
+types-pytest-lazy-fixture                0.6
+types-python-crontab                     2.6
+types-python-dateutil                    2.8
+types-python-gflags                      3.1
+types-python-jose                        3.3
+types-python-nmap                        0.7
+types-python-slugify                     6.1
+types-pytz                               2022.6
+types-pyvmomi                            7.0
+types-pywin32                            304
+types-PyYAML                             6.0
+types-redis                              4.3
+types-regex                              2022.10.31
+types-requests                           2.28
+types-retry                              0.9
+types-Send2Trash                         1.8
+types-setuptools                         65.5
+types-simplejson                         3.17
+types-singledispatch                     3.7
+types-six                                1.16
+types-slumber                            0.7
+types-SQLAlchemy                         1.4.43
+types-stdlib-list                        0.8
+types-stripe                             3.5
+types-tabulate                           0.9
+types-termcolor                          1.1
+types-toml                               0.10
+types-toposort                           1.7
+types-tqdm                               4.64
+types-tree-sitter                        0.20
+types-tree-sitter-languages              1.5
+types-ttkthemes                          3.2
+types-typed-ast                          1.5
+types-tzlocal                            4.2
+types-ujson                              5.5
+types-urllib3                            1.26
+types-vobject                            0.9
+types-waitress                           2.1
+types-whatthepatch                       1.0
+types-xmltodict                          0.13
+types-xxhash                             3.0
+types-zxcvbn                             4.4
+typing_extensions                        4.4.0
+urllib3                                  1.26.12
+v4l2-python3                             0.3.3
+webencodings                             0.5.1
+Werkzeug                                 2.2.2
+wheel                                    0.38.4
+wrapt                                    1.14.1
+zipp                                     1.0.0
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo pip3 LedController.py
+ERROR: unknown command "LedController.py"
+jkenagy@raspberrypi:~/JohnsBoard-main $ sudo python LedController.py
+ * Serving Flask app 'LedController'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+Press CTRL+C to quit
+127.0.0.1 - - [27/May/2024 23:58:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:58:41] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [27/May/2024 23:58:47] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:58:55] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:58:57] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:58:59] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:00] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:00] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:01] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:02] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:30] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:37] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:38] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [27/May/2024 23:59:54] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:11] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:37] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:38] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:40] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:42] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:42] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:43] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:44] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:49] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:50] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:51] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:52] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:53] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:54] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:56] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:59] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:00:59] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:00] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:03] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:04] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:23] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:26] "POST /save_configuration HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:01:56] "GET / HTTP/1.1" 200 -
+[2024-05-28 00:02:00,841] ERROR in app: Exception on /load_configuration [GET]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2525, in wsgi_app
     response = self.full_dispatch_request()
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1822, in full_dispatch_request
     rv = self.handle_user_exception(e)
          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1820, in full_dispatch_request
     rv = self.dispatch_request()
          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/JohnsBoard-main/LedController.py", line 43, in set_led
-    pixels.show()
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/adafruit_pixelbuf.py", line 204, in show
-    return self._transmit(self._post_brightness_buffer)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/neopixel.py", line 180, in _transmit
-    neopixel_write(self.pin, buffer)
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/neopixel_write.py", line 42, in neopixel_write
-    return _neopixel.neopixel_write(gpio, buf)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/adafruit_blinka/microcontroller/bcm283x/neopixel.py", line 78, in neopixel_write
-    raise RuntimeError(
-RuntimeError: NeoPixel support requires running with sudo, please try again!
-127.0.0.1 - - [27/May/2024 21:50:18] "POST /set_led HTTP/1.1" 500 -
-
-sudo nano /etc/systemd/system/led_controller.service
-
-[Unit]
-Description=LED Controller Service
-After=multi-user.target
-
-[Service]
-ExecStart=/home/pi/led_control_env/bin/python /home/pi/led_control_project/led_controller.py
-WorkingDirectory=/home/pi/led_control_project
-StandardOutput=inherit
-StandardError=inherit
-Restart=always
-User=pi
-
-[Install]
-WantedBy=multi-user.target
-
-× led_controller.service - LED Controller Service
-     Loaded: loaded (/etc/systemd/system/led_controller.service; enabled; preset: enabled)
-     Active: failed (Result: exit-code) since Mon 2024-05-27 22:13:21 BST; 21s ago
-   Duration: 6ms
-    Process: 3137 ExecStart=/home/pi/led_control_env/bin/python /home/pi/led_control_project/led_controlle>
-   Main PID: 3137 (code=exited, status=203/EXEC)
-        CPU: 4ms
-
-May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Scheduled restart job, restart counter is >
-May 27 22:13:21 raspberrypi systemd[1]: Stopped led_controller.service - LED Controller Service.
-May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Start request repeated too quickly.
-May 27 22:13:21 raspberrypi systemd[1]: led_controller.service: Failed with result 'exit-code'.
-May 27 22:13:21 raspberrypi systemd[1]: Failed to start led_controller.service - LED Controller Service.
-lines 1-13/13 (END)
-
+  File "/home/jkenagy/JohnsBoard-main/LedController.py", line 58, in load_configuration
+    with open(f'Database/{config_name}.json', 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Database/.json'
+127.0.0.1 - - [28/May/2024 00:02:00] "GET /load_configuration?name= HTTP/1.1" 500 -
+127.0.0.1 - - [28/May/2024 00:02:04] "GET /load_configuration?name=Test HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:16] "POST /save_configuration HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:33] "GET /load_configuration?name=Test HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:46] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:47] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:48] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:48] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:49] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:50] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:02:51] "POST /set_led HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:03:03] "GET /load_configuration?name=Test HTTP/1.1" 200 -
+127.0.0.1 - - [28/May/2024 00:03:03] "GET / HTTP/1.1" 200 -
+  
