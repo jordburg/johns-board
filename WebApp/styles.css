@@ -1,0 +1,15 @@
+.content {
+  margin: 16px;
+}
+.led-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: grid;
+  gap: 5px;
+}
+.led-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+  gap: 1px;
+}
