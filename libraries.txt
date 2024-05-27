@@ -2,12 +2,34 @@ rpi_ws281x
 adafruit-circuitpython-neopixel
 flask
 
-× This environment is externally managed
-╰─> To install Python packages system-wide, try apt install
-    python3-xyz, where xyz is the package you are trying to
-    install.
-    
-    If you wish to install a non-Debian-packaged Python package,
-    create a virtual environment using python3 -m venv path/to/venv.
-    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
-    sure you have python3-full installed.
+127.0.0.1 - - [27/May/2024 21:49:53] "GET / HTTP/1.1" 200 -
+Can't open /dev/mem: Permission denied
+[2024-05-27 21:50:18,231] ERROR in app: Exception on /set_led [POST]
+Traceback (most recent call last):
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/JohnsBoard-main/LedController.py", line 43, in set_led
+    pixels.show()
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/adafruit_pixelbuf.py", line 204, in show
+    return self._transmit(self._post_brightness_buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/neopixel.py", line 180, in _transmit
+    neopixel_write(self.pin, buffer)
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/neopixel_write.py", line 42, in neopixel_write
+    return _neopixel.neopixel_write(gpio, buf)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/¬/led_control_env/lib/python3.11/site-packages/adafruit_blinka/microcontroller/bcm283x/neopixel.py", line 78, in neopixel_write
+    raise RuntimeError(
+RuntimeError: NeoPixel support requires running with sudo, please try again!
+127.0.0.1 - - [27/May/2024 21:50:18] "POST /set_led HTTP/1.1" 500 -
+
