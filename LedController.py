@@ -33,7 +33,7 @@ def set_led():
         pixels[led_index] = (0, 255, 0)
     elif color == 'blue':
         pixels[led_index] = (0, 0, 255)
-    elif color == 'off':
+    else:
         pixels[led_index] = (0, 0, 0)
 
     led_state[led_index] = pixels[led_index]
