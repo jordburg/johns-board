@@ -23,3 +23,12 @@ led_control_project/
 │   └── some_configuration.json
 ├── led_controller.py
 └── README.md
+
+# Create a new virtual environment (if not already done)
+python3 -m venv ~/led_control_env
+
+# Activate the virtual environment
+source ~/led_control_env/bin/activate
+
+# Install the required Python packages
+pip install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
