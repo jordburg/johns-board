@@ -175,3 +175,80 @@ Traceback (most recent call last):
     raise RuntimeError(
 RuntimeError: NeoPixel support requires running with sudo, please try again!
 swig/python detected a memory leak of type 'ws2811_t *', no destructor found.
+
+The error message indicates that you need to run the script with `sudo` to access the necessary hardware resources on the Raspberry Pi.
+
+### Adjusting the Script Execution
+
+To run the script with `sudo` while ensuring it uses the virtual environment, you need to specify the full path to the Python interpreter within your virtual environment.
+
+### Steps to Run the Script with `sudo`
+
+1. **Ensure the Script is in the Correct Location**
+
+   Make sure your script is located where you expect it to be. For example, let's assume your script is at `/home/jkenagy/led_brightness.py`.
+
+2. **Activate the Virtual Environment**
+
+   Activate the virtual environment to find the correct Python interpreter path.
+
+   ```bash
+   source ~/led_control_env/bin/activate
+   ```
+
+3. **Find the Full Path of the Python Interpreter**
+
+   Use the `which` command to get the full path of the Python interpreter in your virtual environment.
+
+   ```bash
+   which python
+   ```
+
+   This should return something like `/home/jkenagy/led_control_env/bin/python`.
+
+4. **Run the Script with `sudo`**
+
+   Use `sudo` to run the script, ensuring you use the full path to the Python interpreter from your virtual environment.
+
+   ```bash
+   sudo /home/jkenagy/led_control_env/bin/python /home/jkenagy/led_brightness.py 1.0
+   ```
+
+### Example Script (`led_brightness.py`)
+
+Here is an example of the `led_brightness.py` script for reference:
+
+```python
+import board
+import neopixel
+import sys
+
+# Configuration
+LED_PIN = board.D18
+NUM_LEDS = 2000  # Total number of LEDs
+ORDER = neopixel.GRB
+
+# Create NeoPixel object
+pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS, auto_write=False, pixel_order=ORDER)
+
+# Set brightness
+brightness = float(sys.argv[1])  # Get brightness value from command line argument
+if 0.0 <= brightness <= 1.0:
+    pixels.brightness = brightness
+    pixels.show()
+    print(f"Brightness set to {brightness}")
+else:
+    print("Brightness value must be between 0.0 and 1.0")
+```
+
+### Running the Script
+
+Now, execute the script with `sudo` and the full path to the Python interpreter:
+
+```bash
+sudo /home/jkenagy/led_control_env/bin/python /home/jkenagy/led_brightness.py 1.0
+```
+
+This command should adjust the brightness of your LEDs to the value specified (1.0 in this case).
+
+By following these steps, you ensure that the script has the necessary permissions to access the hardware resources while using the correct Python interpreter from your virtual environment.
