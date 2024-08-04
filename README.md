@@ -57,6 +57,21 @@ pip install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
 
 sudo -E ~/led_control_env/bin/python ~/led_control_project/led_controller.py
 
+[Unit]
+Description=LED Controller Service
+After=multi-user.target
+
+[Service]
+ExecStart=sudo -E /home/jkenagy/led_control_env/bin/python /home/jkenagy/led_control_project/led_controller.py
+WorkingDirectory=/home/jkenagy/led_control_project
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=jkenagy
+
+[Install]
+WantedBy=multi-user.target
+
 sudo systemctl daemon-reload
 sudo systemctl enable led_controller.service
 sudo systemctl start led_controller.service
