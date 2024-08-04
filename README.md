@@ -249,6 +249,123 @@ Now, execute the script with `sudo` and the full path to the Python interpreter:
 sudo /home/jkenagy/led_control_env/bin/python /home/jkenagy/led_brightness.py 1.0
 ```
 
+
+
+
+YYYYYY
+
+If you want to control the brightness of the LEDs directly from the terminal without using a specific board library like `board` from Adafruit, you can still use the `rpi_ws281x` library, which provides direct control over the GPIO pins. Below is a step-by-step guide to achieve this.
+
+### Step-by-Step Guide
+
+1. **Install the `rpi_ws281x` Library**
+
+   First, make sure you have the `rpi_ws281x` library installed in your environment. You can install it using `pip`:
+
+   ```bash
+   pip install rpi-ws281x
+   ```
+
+2. **Create a Python Script for Setting Brightness**
+
+   Create a new Python script, for example, `set_brightness.py`:
+
+   ```bash
+   nano set_brightness.py
+   ```
+
+3. **Add the Following Code to `set_brightness.py`**
+
+   This script will set the brightness of the LEDs connected to a specified GPIO pin:
+
+   ```python
+   import sys
+   from rpi_ws281x import PixelStrip, Color
+
+   # Configuration
+   LED_COUNT = 2000       # Number of LED pixels.
+   LED_PIN = 18           # GPIO pin connected to the pixels (18 uses PWM).
+   LED_FREQ_HZ = 800000   # LED signal frequency in hertz (usually 800khz)
+   LED_DMA = 10           # DMA channel to use for generating signal (try 10)
+   LED_BRIGHTNESS = 255   # Set to 0 for darkest and 255 for brightest
+   LED_INVERT = False     # True to invert the signal (when using NPN transistor level shift)
+   LED_CHANNEL = 0        # Set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+   # Create PixelStrip object with appropriate configuration.
+   strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+   # Intialize the library (must be called once before other functions).
+   strip.begin()
+
+   # Set brightness from command line argument
+   brightness = int(float(sys.argv[1]) * 255)
+   if 0 <= brightness <= 255:
+       strip.setBrightness(brightness)
+       strip.show()
+       print(f"Brightness set to {brightness / 255.0}")
+   else:
+       print("Brightness value must be between 0.0 and 1.0")
+   ```
+
+4. **Save and Exit**:
+
+   Save the file by pressing `Ctrl + X`, then `Y`, and `Enter`.
+
+5. **Run the Script with `sudo`**
+
+   Since the script interacts with the GPIO pins directly, you need to run it with `sudo`:
+
+   ```bash
+   sudo python3 set_brightness.py 0.5
+   ```
+
+   Replace `0.5` with the desired brightness value between `0.0` (off) and `1.0` (full brightness).
+
+### Example Commands
+
+- **Create the Script**:
+
+  ```bash
+  nano set_brightness.py
+  ```
+
+- **Add the Code**:
+
+  ```python
+  import sys
+  from rpi_ws281x import PixelStrip, Color
+
+  # Configuration
+  LED_COUNT = 2000       # Number of LED pixels.
+  LED_PIN = 18           # GPIO pin connected to the pixels (18 uses PWM).
+  LED_FREQ_HZ = 800000   # LED signal frequency in hertz (usually 800khz)
+  LED_DMA = 10           # DMA channel to use for generating signal (try 10)
+  LED_BRIGHTNESS = 255   # Set to 0 for darkest and 255 for brightest
+  LED_INVERT = False     # True to invert the signal (when using NPN transistor level shift)
+  LED_CHANNEL = 0        # Set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+  # Create PixelStrip object with appropriate configuration.
+  strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+  # Intialize the library (must be called once before other functions).
+  strip.begin()
+
+  # Set brightness from command line argument
+  brightness = int(float(sys.argv[1]) * 255)
+  if 0 <= brightness <= 255:
+      strip.setBrightness(brightness)
+      strip.show()
+      print(f"Brightness set to {brightness / 255.0}")
+  else:
+      print("Brightness value must be between 0.0 and 1.0")
+  ```
+
+- **Run the Script**:
+
+  ```bash
+  sudo python3 set_brightness.py 0.5
+  ```
+
+By using this script, you can directly control the brightness of your LEDs from the terminal. This approach uses the `rpi_ws281x` library, which is specifically designed for controlling WS281x LEDs on a Raspberry Pi.
+
 This command should adjust the brightness of your LEDs to the value specified (1.0 in this case).
 
 By following these steps, you ensure that the script has the necessary permissions to access the hardware resources while using the correct Python interpreter from your virtual environment.
