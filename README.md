@@ -130,3 +130,25 @@ sudo systemctl daemon-reload
 ```
 
 By following these steps, you will ensure that the LED controller service does not start automatically on boot and, if desired, completely remove the service file from your system.
+
+import board
+import neopixel
+import sys
+
+# Configuration
+LED_PIN = board.D18
+NUM_LEDS = 2000  # Total number of LEDs
+ORDER = neopixel.GRB
+
+# Create NeoPixel object
+pixels = neopixel.NeoPixel(LED_PIN, NUM_LEDS, auto_write=False, pixel_order=ORDER)
+
+# Set brightness
+brightness = float(sys.argv[1])  # Get brightness value from command line argument
+if 0.0 <= brightness <= 1.0:
+    pixels.brightness = brightness
+    pixels.show()
+    print(f"Brightness set to {brightness}")
+else:
+    print("Brightness value must be between 0.0 and 1.0")
+
