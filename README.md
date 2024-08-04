@@ -158,3 +158,20 @@ Traceback (most recent call last):
                        ~~~~~~~~^^^
 IndexError: list index out of range
 
+ss.py 1.0
+Can't open /dev/mem: Permission denied
+Traceback (most recent call last):
+  File "/home/jkenagy/led_brightness.py/led_brightness.py", line 17, in <module>
+    pixels.show()
+  File "/home/jkenagy/led_control_env/lib/python3.11/site-packages/adafruit_pixelbuf.py", line 204, in show
+    return self._transmit(self._post_brightness_buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/led_control_env/lib/python3.11/site-packages/neopixel.py", line 180, in _transmit
+    neopixel_write(self.pin, buffer)
+  File "/home/jkenagy/led_control_env/lib/python3.11/site-packages/neopixel_write.py", line 46, in neopixel_write
+    return _neopixel.neopixel_write(gpio, buf)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jkenagy/led_control_env/lib/python3.11/site-packages/adafruit_blinka/microcontroller/bcm283x/neopixel.py", line 78, in neopixel_write
+    raise RuntimeError(
+RuntimeError: NeoPixel support requires running with sudo, please try again!
+swig/python detected a memory leak of type 'ws2811_t *', no destructor found.
