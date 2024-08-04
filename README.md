@@ -77,3 +77,56 @@ sudo systemctl enable led_controller.service
 sudo systemctl start led_controller.service
 sudo systemctl status led_controller.service
 
+To prevent the LED controller service from starting up on boot, you need to disable and optionally remove the systemd service file you created. Here are the steps:
+
+### 1. Disable the Service
+
+Disabling the service will prevent it from starting automatically on boot.
+
+```bash
+sudo systemctl disable led_controller.service
+```
+
+### 2. Stop the Service (if it is running)
+
+If the service is currently running, stop it.
+
+```bash
+sudo systemctl stop led_controller.service
+```
+
+### 3. Remove the Service File (optional)
+
+If you want to completely remove the service file from your system, you can delete it.
+
+```bash
+sudo rm /etc/systemd/system/led_controller.service
+```
+
+### 4. Reload systemd
+
+After deleting the service file, reload the systemd manager configuration to apply the changes.
+
+```bash
+sudo systemctl daemon-reload
+```
+
+### Summary of Commands
+
+Here is the complete sequence of commands:
+
+```bash
+# Disable the service
+sudo systemctl disable led_controller.service
+
+# Stop the service if it is running
+sudo systemctl stop led_controller.service
+
+# Remove the service file (optional)
+sudo rm /etc/systemd/system/led_controller.service
+
+# Reload systemd to apply the changes
+sudo systemctl daemon-reload
+```
+
+By following these steps, you will ensure that the LED controller service does not start automatically on boot and, if desired, completely remove the service file from your system.
