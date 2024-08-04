@@ -57,3 +57,8 @@ pip install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
 
 sudo -E ~/led_control_env/bin/python ~/led_control_project/led_controller.py
 
+sudo systemctl daemon-reload
+sudo systemctl enable led_controller.service
+sudo systemctl start led_controller.service
+sudo systemctl status led_controller.service
+
