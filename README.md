@@ -32,3 +32,6 @@ source ~/led_control_env/bin/activate
 
 # Install the required Python packages
 pip install rpi_ws281x adafruit-circuitpython-neopixel flask adafruit-blinka
+
+sudo -E ~/led_control_env/bin/python ~/led_control_project/led_controller.py
+
