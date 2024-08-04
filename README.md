@@ -152,3 +152,9 @@ if 0.0 <= brightness <= 1.0:
 else:
     print("Brightness value must be between 0.0 and 1.0")
 
+Traceback (most recent call last):
+  File "/home/jkenagy/led_brightness.py/led_brightness.py", line 14, in <module>
+    brightness = float(sys.argv[1])  # Get brightness value from command line argument
+                       ~~~~~~~~^^^
+IndexError: list index out of range
+
